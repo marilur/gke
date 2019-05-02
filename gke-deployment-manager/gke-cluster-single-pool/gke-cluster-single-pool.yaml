@@ -1,0 +1,16 @@
+# This example is based on the one given in this link:
+# https://medium.com/google-cloud/cloud-deployment-manager-kubernetes-2dd9b8124223
+# but the cluster is created calling the 'type': 'gcp-types/container-v1beta1:projects.locations.clusters',
+# and not the 'type': 'container.v1.cluster' when creaating the cluster.
+
+imports:
+- path: templates/gke-cluster-single-pool.py
+  name: gke-cluster-single-pool.py
+
+resources:
+  - name: gke-cluster-single-pool
+    type: gke-cluster-single-pool.py
+    properties:
+      cluster_name: gke-test-cluster
+      cluster_region: us-central1
+      num_nodes: 2

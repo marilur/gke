@@ -26,7 +26,7 @@ gcloud beta container --project "<your project>" clusters create "cloudsql-gke-c
 --no-enable-ip-alias --network "projects/<your project>/global/networks/shared-network" \
 --subnetwork "projects/<your project>/regions/us-central1/subnetworks/shared-network"
 ```
-**** Note in this example the cluster is being created with the flag --no-enable-ip-alias which creates the cluster with alias-ip disable, this was done to test the iptables daemonset. 
+**** Note, in this example the cluster is being created with the flag --no-enable-ip-alias which creates the cluster with alias-ip disable, this was done to test the iptables daemonset. 
 The CloudSQL proxy expects to work without any issues if alias IP is enabled in the cluster ****
 
 The output should look like

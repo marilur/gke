@@ -1,0 +1,21 @@
+# This example is based on the one given in this link:
+# https://medium.com/google-cloud/cloud-deployment-manager-kubernetes-2dd9b8124223
+# but the cluster is created calling the 'type': 'gcp-types/container-v1beta1:projects.locations.clusters',
+# and not the 'type': 'container.v1.cluster' when creating the cluster.
+
+imports:
+- path: templates/gke-cluster-two-pools.py
+  name: gke-cluster-two-pools.py
+
+resources:
+  - name: gke-cluster
+    type: gke-cluster-two-pools.py
+    properties:
+      cluster_name: gke-cluster
+      cluster_region: us-central1
+      # Resource definition for the default node pool
+      default_pool_num_nodes: 2
+      #Resouce definition for pool-1
+      name_pool_1: pool-1
+      pool_1_initialNodeCount: 2
+      
